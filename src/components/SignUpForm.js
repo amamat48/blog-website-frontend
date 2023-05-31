@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { signUp } from '../services/users-api'
 
-export default function SignUpCard({ setIsLogged }) {
+export default function SignUpForm({ setIsLogged }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -13,28 +13,29 @@ export default function SignUpCard({ setIsLogged }) {
   })
 
   const handleChange = (evt) => {
-    const { name, value } = evt.target;
-    setFormData((prevFormData) => ({
-      ...prevFormData,
-      [name]: value
-    }));
+
+    setFormData({
+      ...formData,
+      [evt.target.name]: evt.target.value
+    })
+
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault()
-
+    console.log(formData)
     try {
       const newUser = await signUp(formData)
       console.log(newUser)
-      // setIsLogged(true)
+      setIsLogged(true)
     } catch (error) {
 
       console.error('Sign-up error:', error);
     }
   }
 
-  // const disable = formData.password !== formData.confirm
-
+  const disable = formData.password !== formData.confirm
+  
   return (
 
     <div>
@@ -47,12 +48,12 @@ export default function SignUpCard({ setIsLogged }) {
           <label>Password</label>
           <input type="password" name="password" value={formData.password} onChange={handleChange} required />
           <label>Confirm</label>
-          <input type='password' name='password' value={formData.confirm} onChange={handleChange} required />
+          <input type='password' name='confirm' value={formData.confirm} onChange={handleChange} required />
           <button type="submit">SIGN UP</button>
         </form>
       </div>
       {/* <p className="error-message">&nbsp;{this.state.error}</p> */}
-      <Link to='/login'>or Log In</Link>
+      <Link to='/users/login'>or Log In</Link>
     </div>
   )
 }

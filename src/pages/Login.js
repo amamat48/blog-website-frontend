@@ -1,7 +1,12 @@
 import React from 'react'
 
-export default function Login() {
-  return (
-    <div>Login</div>
-  )
+import { useState } from 'react'
+import LoginForm from '../components/LoginForm'
+
+export default function Login({ setUser, setIsLogged }) {
+    return(
+        <div>
+            <LoginForm setUser={setUser} setIsLogged={setIsLogged}/>
+        </div>
+    )
 }

@@ -22,16 +22,11 @@ export const deleteUser = (id) => {
 
 
 export async function signUp(userData) {
-    const response = axios.post(`${baseURL}/signup`, {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(userData),
-    })
+    const response = await axios.post(`${baseURL}/signup`,userData)
 
-    if (response.ok) {
-        const token = await response.json()
+    console.log(response)
+    if (response.status === 200) {
+        const token = await response.data
         localStorage.setItem('token', token)
         return getTokendUser()
     } else {
@@ -50,18 +45,15 @@ export async function getTokendUser() {
     const token = getToken();
 
     return token ? JSON.parse(atob(token.split('.')[1])).user : null
+}
 
-    // const res = axios.get(`${baseURL}/`)
-    // const response = await fetch(`${baseURL}/users`, {
-    //     headers: {
-    //         Authorization: `Bearer ${token}`,
-    //     },
-    // });
+export async function login(userData) {
+    const response = await axios.post(`${baseURL}/login`, userData)
 
-    // if (response.ok) {
-    //     const user = await response.json()
-    //     return user
-    // } else {
-    //     throw new Error('Failed to fetch user data')
-    // }
+    if (response.status === 200) {
+        const token = await response.data
+        localStorage.setItem('token', token)
+    } else {
+        throw new Error('Invalid Log in')
+    }
 }

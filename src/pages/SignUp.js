@@ -1,11 +1,11 @@
 import React from 'react'
-import SignUpCard from '../components/SignUpForm'
+import SignUpForm from '../components/SignUpForm'
 
 export default function SignUp({ setIsLogged }) {
-    
+
   return (
     <div>
-        <SignUpCard setIsLogged={setIsLogged}/>
+        <SignUpForm setIsLogged={setIsLogged} />
     </div>
   )
 }

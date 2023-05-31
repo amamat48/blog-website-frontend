@@ -4,14 +4,18 @@ import User from './User'
 import SignUp from './SignUp'
 import NavBar from '../components/NavBar'
 
+import { useState, useEffect } from 'react'
 
-export default function Home({ isLogged, setIsLogged}) {
+
+export default function Home({ isLogged, setIsLogged, blogs }) {
+
+
   return (
     <div>
       {isLogged ?
       <div>
         <NavBar />
-        <Blog />
+        <Blog blogs={blogs}/>
         <User />
         </div>
       :
