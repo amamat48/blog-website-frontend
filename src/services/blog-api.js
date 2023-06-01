@@ -1,5 +1,7 @@
 import axios from 'axios'
-const baseURL = 'http://localhost:3001/blogs'
+
+const baseURL = 'https://backend-express-amari.onrender.com/blogs'
+// const baseURL = 'http://localhost:3001/blogs'
 
 export const getAllBlogs = () => {
     const URL = baseURL
