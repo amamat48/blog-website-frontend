@@ -4,7 +4,7 @@ import { useState } from 'react'
 
 import { signUp } from '../services/users-api'
 
-export default function SignUpForm({ setIsLogged }) {
+export default function SignUpForm({ setIsLogged, setUser }) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -28,6 +28,7 @@ export default function SignUpForm({ setIsLogged }) {
       const newUser = await signUp(formData)
       console.log(newUser)
       setIsLogged(true)
+      setUser(newUser)
     } catch (error) {
 
       console.error('Sign-up error:', error);
@@ -35,7 +36,7 @@ export default function SignUpForm({ setIsLogged }) {
   }
 
   const disable = formData.password !== formData.confirm
-  
+
   return (
 
     <div>

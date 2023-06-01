@@ -1,7 +1,18 @@
 import React from 'react'
 
-export default function Blog() {
+import BlogCard from '../components/BlogCard'
+
+export default function Blog({ blogs }) {
+
+  console.log(blogs)
+
   return (
-    <div>Blog</div>
+    <div>
+      {blogs ? blogs.map((blog, id) => {
+        return (
+            <BlogCard blog={blog} />
+        )
+      }) : <div>loading...</div>}
+    </div>
   )
 }

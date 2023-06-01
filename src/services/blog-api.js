@@ -23,4 +23,11 @@ export const createBlog = (createdBlog) => {
 export const editBlog = (id, editedBlog) => {
     const URL = `${baseURL}/${id}`
     const response = axios.put(URL, editedBlog)
+    return response
+}
+
+export const makeComment = (id, createdComment) => {
+    const URL = `${baseURL}/${id}`
+    const response = axios.put(URL, createdComment)
+    return response
 }

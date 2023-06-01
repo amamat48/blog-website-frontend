@@ -23,21 +23,22 @@ function App() {
   useEffect(() => {
     const fetchAllBlogs = async () => {
       const response = await blogsAPI.getAllBlogs()
-      setAllBlogs(response)
+      console.log(response.data)
+      setAllBlogs(response.data)
     }
     fetchAllBlogs()
   }, [])
 
-  console.log(user)
+
 
   return (
     <div>
       <Routes>
-        <Route path='/' element={<Home isLogged={isLogged} setIsLogged={setIsLogged} blogs={allBlogs} user={user} />} />
-        <Route path='/blogs' element={<Blog />} />
+        <Route path='/' element={<Home isLogged={isLogged} setIsLogged={setIsLogged} blogs={allBlogs} user={user} setUser={setUser}  />} />
+        <Route path='/blogs' element={<Blog blogs={allBlogs} />} />
         <Route path='/user' element={<User user={user}/>} />
-        <Route path='/user/signup' element={<SignUp />} />
-        <Route path='/users/login' element={<Login setUser={setUser} setIsLogged={setIsLogged}/>} />
+        <Route path='/user/signup' element={<SignUp setUser={setUser} setIsLogged={setIsLogged}/>} />
+        <Route path='/user/login' element={<Login setUser={setUser} setIsLogged={setIsLogged}/>} />
       </Routes>
     </div>
 

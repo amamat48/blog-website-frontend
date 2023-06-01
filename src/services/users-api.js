@@ -22,7 +22,7 @@ export const deleteUser = (id) => {
 
 
 export async function signUp(userData) {
-    const response = await axios.post(`${baseURL}/signup`,userData)
+    const response = await axios.post(`${baseURL}/signup`, userData)
 
     console.log(response)
     if (response.status === 200) {
@@ -48,12 +48,27 @@ export async function getTokendUser() {
 }
 
 export async function login(userData) {
-    const response = await axios.post(`${baseURL}/login`, userData)
+    const response = await axios.post(`${baseURL}/login`, userData);
 
     if (response.status === 200) {
-        const token = await response.data
-        localStorage.setItem('token', token)
+      const { token, user } = response.data;
+      console.log(response)
+      localStorage.setItem('token', token);
+      localStorage.setItem('user', JSON.stringify(user));
+      return user;
     } else {
-        throw new Error('Invalid Log in')
+      throw new Error('Invalid Log in');
     }
-}
+  }
+// export async function login(userData) {
+//     const response = await axios.post(`${baseURL}/login`, userData)
+
+//     if (response.status === 200) {
+//         const token = await response.data;
+//         const user = jwt.decode(token).user
+//         localStorage.setItem('token', token)
+//         return user
+//     } else {
+//         throw new Error('Invalid Log in')
+//     }
+// }

@@ -21,8 +21,10 @@ export default function LoginForm({ setUser, setIsLogged }) {
         e.preventDefault()
         try {
             const user = await login(credentials)
+            console.log(credentials)
+            console.log(user.user)
             setIsLogged(true)
-            setUser(user)
+            setUser(user.user)
         } catch (err) {
             console.error(err)
         }
