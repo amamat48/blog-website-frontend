@@ -1,8 +1,9 @@
 import React from 'react'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
+import { Link } from 'react-router-dom'
 
-import { makeComment } from '../services/blog-api'
+import { deleteBlog, makeComment } from '../services/blog-api'
 
 export default function BlogCard({ blog }) {
 
@@ -33,15 +34,19 @@ export default function BlogCard({ blog }) {
     }
   }
 
-
+  const handleDelete = async (e) => {
+    await deleteBlog(blog.blog._id)
+  }
 
   return (
-    <div>
-      <section>
-        <h2>{blog.blog.title}</h2>
+    <div className='cardContainer'>
+      <section className='post'>
+        <Link to={`/blogs/${blog.blog._id}`}><h1>{blog.blog.title}</h1></Link>
         <article>{blog.blog.entry}</article>
+        <button onClick={handleDelete}>DELETE</button>
+        <Link to={`/blogs/edit/${blog.blog._id}`}>EDIT</Link>
       </section>
-      <section>
+      <section className='comment'>
         <h2>Comments:</h2>
         {blog.comments.map((comment) => {
           return (

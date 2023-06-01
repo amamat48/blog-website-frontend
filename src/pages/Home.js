@@ -13,11 +13,7 @@ export default function Home({  blogs }) {
 
   return (
     <div>
-
-      <NavBar />
       <Blog blogs={blogs}  />
-      
-
       {/* {isLogged ?
         <div>
         </div>

@@ -8,10 +8,15 @@ import Blog from './pages/Blog'
 import User from './pages/User'
 import Login from './pages/Login'
 import SignUp from './pages/SignUp'
+import CreateBlog from './pages/CreateBlog'
 
 import * as blogsAPI from './services/blog-api'
 
 import { getTokendUser } from './services/users-api'
+import NavBar from './components/NavBar';
+import SingleBlog from './pages/SingleBlog';
+import EditBlog from './pages/EditBlog';
+
 
 
 function App() {
@@ -32,10 +37,14 @@ function App() {
 
 
   return (
-    <div>
+    <div className='App'>
+      <NavBar />
       <Routes>
         <Route path='/' element={<Home isLogged={isLogged} setIsLogged={setIsLogged} blogs={allBlogs} user={user} setUser={setUser}  />} />
         <Route path='/blogs' element={<Blog blogs={allBlogs} />} />
+        <Route path='/blogs/create' element={<CreateBlog />} />
+        <Route path="/blogs/edit/:id" element={<EditBlog blogs={allBlogs} />} />
+        <Route path='/blogs/:id' element={<SingleBlog />} />
         <Route path='/user' element={<User user={user}/>} />
         <Route path='/user/signup' element={<SignUp setUser={setUser} setIsLogged={setIsLogged}/>} />
         <Route path='/user/login' element={<Login setUser={setUser} setIsLogged={setIsLogged}/>} />

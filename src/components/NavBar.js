@@ -4,15 +4,12 @@ import { Link } from 'react-router-dom'
 export default function NavBar({ user }) {
 
   return (
-    <div>
+    <div className='navBarContainer'>
         <Link to='/'>
             <div>Home</div>
         </Link>
-        <Link to='/blogs'>
-            <div>Blogs</div>
-        </Link>
-        <Link to='/user'>
-            <div>Profile</div>
+        <Link to='/blogs/create'>
+            <div>Create Blog</div>
         </Link>
     </div>
   )

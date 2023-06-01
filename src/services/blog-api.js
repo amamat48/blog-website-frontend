@@ -21,8 +21,14 @@ export const createBlog = (createdBlog) => {
 }
 
 export const editBlog = (id, editedBlog) => {
-    const URL = `${baseURL}/${id}`
+    const URL = `${baseURL}/edit/${id}`
     const response = axios.put(URL, editedBlog)
+    return response
+}
+
+export const deleteBlog =(id) => {
+    const URL = `${baseURL}/${id}`
+    const response = axios.delete(URL)
     return response
 }
 
@@ -31,3 +37,4 @@ export const makeComment = (id, createdComment) => {
     const response = axios.put(URL, createdComment)
     return response
 }
+
