@@ -23,7 +23,7 @@ The following technologies, libraries, and APIs were used in the development of 
 ## Getting Started
 To get started with the Blog Website, you can access the following resources:
 
-- Deployment: The application is deployed on Heroku. You can access the deployed app [here](https://blog-website-frontend-nine.vercel.app).
+- Deployment: The application is deployed on Vercel. You can access the deployed app [here](https://blog-website-frontend-nine.vercel.app).
 - Backend-repo: The backend server reop is located [here](https://github.com/amamat48/Blog-website-backend/tree/main)
 
 ## Unsolved Problems
