@@ -3,7 +3,7 @@
 .App {
   text-align: center;
   background-color: coral;
-  height: 100vh;
+  height: max-content;
 }
 
 .navBarContainer {
@@ -25,6 +25,7 @@
   padding-bottom: 2em;
   width: 75%;
   box-shadow: 4em;
+  border-bottom: 2px dashed black;
 }
 
 @keyframes rainbow {
@@ -44,4 +45,8 @@ a:hover {
 
 button:hover {
   animation: rainbow 6s ease-in-out infinite;
+}
+
+.singleCardContainer {
+  height: 100vh;
 }
