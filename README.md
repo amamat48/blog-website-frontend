@@ -3,7 +3,7 @@
 ## Introduction
 The Blog Website is a full-stack web application that provides a platform for users to express their thoughts and share ideas through blogging. Users can create blog posts with rich content and interact with other users through the platform. The application offers easy-to-follow interface for reading and engaging with blog posts.
 
-![Screenshot](screenshot.png)
+![Screenshot](./HomeSS.png)
 
 ## Technologies Used
 The following technologies, libraries, and APIs were used in the development of this project:
