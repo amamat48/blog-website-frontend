@@ -1,15 +1,18 @@
-
+html {
+  height: max-content;
+  background-color: wheat;
+}
 
 .App {
   text-align: center;
-  background-color: coral;
+  background-color: wheat;
   height: max-content;
 }
 
 .navBarContainer {
   display: flex;
   justify-content: space-around;
-  background-color: coral;
+  background-color: wheat;
   color: white;
   padding: 10px;
   font-size: 2em;
@@ -18,8 +21,26 @@
   top: 0;
 }
 
+.home {
+  position: relative;
+  top: 0.75em;
+}
+
+.createBlog {
+  position: relative;
+  top: 0.75em;
+}
+
+.welcome {
+  position: relative;
+  top: 0;
+}
+
+
+
 .cardContainer {
-  position:relative;
+  height: 100vh;
+  position: relative;
   left: 10%;
   padding-top: 2em;
   padding-bottom: 2em;
@@ -28,25 +49,92 @@
   border-bottom: 2px dashed black;
 }
 
-@keyframes rainbow {
-  0% { color: red; }
-  14% { color: orange; }
-  28% { color: yellow; }
-  42% { color: green; }
-  57% { color: blue; }
-  71% { color: indigo; }
-  85% { color: violet; }
-  100% { color: red; }
-}
-
-a:hover {
-  animation: rainbow 6s ease-in-out infinite;
-}
-
-button:hover {
-  animation: rainbow 6s ease-in-out infinite;
-}
-
 .singleCardContainer {
   height: 100vh;
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 10px;
+  overflow-x: hidden;
+  height: 100vh;
+  position: relative;
+}
+
+
+
+.label {
+  grid-column: 1;
+  margin-top: 2em;
+  right: 2em;
+  font-size: larger;
+}
+
+.input {
+  position: relative;
+  width: 50%;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  height: 25%;
+  margin-top: 2em;
+  left: 2em;
+  background-color: rgb(250, 251, 252);
+  border-color: rgb(223, 225, 230);
+  color: rgb(9, 30, 66);
+  cursor: text;
+  border-radius: 3px;
+  border-width: 2px;
+  border-style: solid;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s;
+  line-height: 1.42857;
+  padding: 8px 6px;
+  height: 36px;
+}
+
+.signup {
+  display: flex;
+  left: 50%;
+  width: 100vh;
+}
+
+.signupButton {
+  position: relative;
+  left: 75%;
+  width: 25%;
+  height: 35%;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid #ff4742;
+  color: #ff4742;
+  background: 0 0;
+  padding: 8px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
+  font-weight: 800;
+  font-size: 16px;
+  height: 42px;
+}
+
+.login {
+  position: relative;
+  right: 0.5rem;
+}
+
+.signupButton:hover {
+  background-color: #ff4742;
+  color: #fff;
+}
+
+
+
+.input:hover {
+  background-color: rgb(235, 236, 240);
+}
+
+.input:focus {
+  background-color: rgb(255, 255, 255);
+  border-color: rgb(76, 154, 255);
 }

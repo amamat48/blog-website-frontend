@@ -12,7 +12,7 @@ export default function BlogCard({ blog }) {
     entry: ''
   })
 
-  console.log(blog.blog._id)
+  console.log(blog)
 
   const handleChange = (e) => {
     setNewComment({
@@ -60,6 +60,10 @@ export default function BlogCard({ blog }) {
           <input type='text' name='entry' value={newComment.entry} onChange={handleChange} />
           <button type='submit'>Add Comment</button>
         </form>
+        <div>
+          {!blog.user && <p>Made by Owner</p>}
+          {blog.user && <p>Made by: {blog.user.name}</p>}
+        </div>
       </section>
     </div>
   )

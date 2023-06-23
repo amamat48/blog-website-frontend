@@ -23,28 +23,28 @@ export const deleteUser = (id) => {
 
 export async function signUp(userData) {
     const response = await axios.post(`${baseURL}/signup`, userData)
-
     console.log(response)
+
     if (response.status === 200) {
         const token = await response.data
+
+        let tokenPayload = token.split('.')[1]
+        let decodedToken = JSON.parse(atob(tokenPayload))
+        console.log(decodedToken.newUser)
+
         localStorage.setItem('token', token)
-        return getTokendUser()
+        localStorage.setItem('user', JSON.stringify(decodedToken))
+
+        return getUserFromLocalStorage()
     } else {
-        throw new Error('Invalid Sign Up')
+        throw Error('Invalid Sign Up')
     }
 }
 
+export function getUserFromLocalStorage() {
+    const user = localStorage.getItem('user')
 
-export function getToken() {
-    const token = localStorage.getItem('token')
-    // Handle token expiration and validation here...
-    return token
-}
-
-export async function getTokendUser() {
-    const token = getToken();
-
-    return token ? JSON.parse(atob(token.split('.')[1])).user : null
+    return JSON.parse(user)
 }
 
 export async function login(userData) {

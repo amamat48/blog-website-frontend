@@ -5,8 +5,6 @@ import NavBar from '../components/NavBar'
 
 export default function Blog({ blogs }) {
 
-  console.log(blogs)
-
   return (
     <>
     <div>

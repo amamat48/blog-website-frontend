@@ -7,20 +7,21 @@ import NavBar from '../components/NavBar'
 import { useState, useEffect } from 'react'
 
 
-export default function Home({  blogs }) {
+export default function Home({  blogs, isLogged, setIsLogged, setUser, user }) {
 
 
 
   return (
     <div>
-      <Blog blogs={blogs}  />
-      {/* {isLogged ?
+
+      {isLogged ?
         <div>
+        <Blog blogs={blogs}  />
         </div>
         :
-        <SignUp setIsLogged={setIsLogged} setUser={setUser} />
+        <SignUp user={user} setIsLogged={setIsLogged} setUser={setUser} />
 
-      } */}
+      }
     </div>
   )
 }

@@ -58,10 +58,11 @@ export default function EditBlog() {
                         Entry: <input type='text' name='entry' value={newBlogData.entry} defaultValue={oldBlogData.Blog.entry} onChange={handleChange} />
                         <button type='submit'>submit</button>
                     </form>
-                    </>
-                    :
-                    <div>Loading...</div>
-    }
+                </>
+                :
+                <div>Loading...</div>
+            }
+            
         </div>
     )
 }
