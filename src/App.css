@@ -1,3 +1,8 @@
+* {
+  text-decoration: none;
+  color: black;
+}
+
 html {
   height: max-content;
   background-color: wheat;
@@ -24,11 +29,21 @@ html {
 .home {
   position: relative;
   top: 0.75em;
+  transition: 0.5s ease-in-out;
+}
+
+.home:hover {
+  transform: scale(1.2);
 }
 
 .createBlog {
   position: relative;
   top: 0.75em;
+  transition: 0.5s ease-in-out;
+}
+
+.createBlog:hover {
+  transform: scale(1.2);
 }
 
 .welcome {
@@ -61,8 +76,6 @@ html {
   height: 100vh;
   position: relative;
 }
-
-
 
 .label {
   grid-column: 1;
@@ -138,3 +151,127 @@ html {
   background-color: rgb(255, 255, 255);
   border-color: rgb(76, 154, 255);
 }
+
+.loginButton {
+  position: relative;
+  left: 75%;
+  width: 25%;
+  height: 35%;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid #ff4742;
+  color: #ff4742;
+  background: 0 0;
+  padding: 8px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
+  font-weight: 800;
+  font-size: 16px;
+  height: 42px;
+  left: 15em;
+}
+
+.loginLabel {
+  position: relative;
+  grid-column: 1;
+  margin-top: 2em;
+  left: 1em;
+  font-size: larger;
+}
+
+.loginInput {
+  position: relative;
+  width: 50%;
+  grid-column-start: 2;
+  grid-column-end: 3;
+  height: 25%;
+  margin-top: 2em;
+  left: 7em;
+  background-color: rgb(250, 251, 252);
+  border-color: rgb(223, 225, 230);
+  color: rgb(9, 30, 66);
+  cursor: text;
+  border-radius: 3px;
+  border-width: 2px;
+  border-style: solid;
+  box-sizing: border-box;
+  font-size: 14px;
+  transition: background-color 0.2s ease-in-out 0s, border-color 0.2s ease-in-out 0s;
+  line-height: 1.42857;
+  padding: 8px 6px;
+  height: 36px;
+}
+
+.loginButton:hover {
+  background-color: #ff4742;
+  color: #fff;
+}
+
+.logout {
+  position: relative;
+  margin-top: 3%;
+  width: 10%;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid #ff4742;
+  color: #ff4742;
+  background: 0 0;
+  padding: 8px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
+  font-weight: 800;
+  font-size: 16px;
+  height: 10%;
+}
+
+.logout:hover {
+  background-color: #ff4742;
+  color: #fff;
+}
+
+.deleteButton {
+  position: relative;
+  width: 10%;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid #ff4742;
+  color: #ff4742;
+  background: 0 0;
+  padding: 8px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
+  font-weight: 800;
+  font-size: 14px;
+  height: 10%;
+  transition: 0.5s ease-in-out;
+}
+
+.deleteButton:hover {
+  background-color: #ff4742;
+  color: #fff;
+  transform: scale(1.2);
+}
+
+.editButton {
+  position: relative;
+  width: 10%;
+  outline: 0;
+  cursor: pointer;
+  border-radius: 6px;
+  border: 2px solid #ff4742;
+  color: #ff4742;
+  background: 0 0;
+  padding: 8px;
+  box-shadow: rgba(0, 0, 0, 0.07) 0px 2px 4px 0px, rgba(0, 0, 0, 0.05) 0px 1px 1.5px 0px;
+  font-weight: 800;
+  font-size: 14px;
+  height: 10%;
+  transition: 0.5s ease-in-out;
+}
+
+.editButton:hover {
+  background-color: #ff4742;
+  color: #fff;
+  transform: scale(1.2);
+}
+

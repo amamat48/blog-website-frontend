@@ -60,7 +60,7 @@ function App() {
       <NavBar user={user} isLogged={isLogged} />
       <Routes>
         <Route path='/' element={<Home isLogged={isLogged} setIsLogged={setIsLogged} blogs={allBlogs} user={user} setUser={setUser}  />} />
-        <Route path='/blogs' element={<Blog blogs={allBlogs} />} />
+        <Route path='/blogs' element={<Blog blogs={allBlogs} user={user} />} />
         <Route path='/blogs/create' element={<CreateBlog user={user} />} />
         <Route path="/blogs/edit/:id" element={<EditBlog blogs={allBlogs} />} />
         <Route path='/blogs/:id' element={<SingleBlog />} />

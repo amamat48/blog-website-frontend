@@ -1,5 +1,6 @@
 import axios from 'axios'
-const baseURL = 'http://localhost:3001/user'
+// const baseURL = 'http://localhost:3001/user'
+const baseURL = 'https://backend-express-amari.onrender.com/user'
 
 // export const getUser = () => {
 //     const URL = baseURL

@@ -1,6 +1,6 @@
 import React from 'react'
 
-import Popup from 'reactjs-popup'
+
 
 import { useState } from 'react'
 import { createBlog } from '../services/blog-api'
@@ -15,7 +15,6 @@ export default function CreateBlog({ user }) {
         entry: '',
         user: user._id
     })
-    console.log(user._id)
 
     const navigate = useNavigate()
 
@@ -45,13 +44,6 @@ export default function CreateBlog({ user }) {
                 Entry: <input type='text' name='entry' value={newBlog.entry} onChange={handleChange} required />
                 <button type='submit'>Create Blog</button>
             </form>
-            {user && (
-                <Popup trigger={<button>Create Blog</button>}>
-                    <div>
-                        <p>Please log in to create a blog!</p>
-                    </div>
-                </Popup>
-            )}
         </div>
     )
 }

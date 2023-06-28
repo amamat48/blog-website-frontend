@@ -5,22 +5,12 @@ export default function NavBar({ user }) {
 
   const nav = useNavigate()
 
+
+
   const handleLogout = () => {
     localStorage.removeItem('token')
     localStorage.removeItem('user')
     window.location.reload()
-  }
-
-  const handleClick = () => {
-
-    if (!user) {
-      return (
-        <div>
-          <p>You need to sign in to create a blog!</p>
-        </div>
-      )
-    }
-
   }
 
   return (

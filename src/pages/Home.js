@@ -1,8 +1,8 @@
 import React from 'react'
 import Blog from './Blog'
-import User from './User'
+
 import SignUp from './SignUp'
-import NavBar from '../components/NavBar'
+
 
 import { useState, useEffect } from 'react'
 
@@ -16,7 +16,7 @@ export default function Home({  blogs, isLogged, setIsLogged, setUser, user }) {
 
       {isLogged ?
         <div>
-        <Blog blogs={blogs}  />
+        <Blog blogs={blogs} user={user} />
         </div>
         :
         <SignUp user={user} setIsLogged={setIsLogged} setUser={setUser} />

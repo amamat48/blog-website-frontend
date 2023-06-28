@@ -44,9 +44,10 @@ export default function SignUpForm({ user, setIsLogged, setUser }) {
   return (
 
     <div>
+      <h1>SIgn Up!</h1>
       <div>
         <form className="form-container" autoComplete="off" onSubmit={handleSubmit}>
-          <label className='label'>Name:</label>
+          <label  className='label'>Name:</label>
           <input className='input' type="text" name="name" value={formData.name} onChange={handleChange} required />
 
           <label className='label'>Email:</label>

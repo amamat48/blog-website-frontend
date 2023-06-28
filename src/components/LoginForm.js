@@ -1,6 +1,7 @@
 import React from 'react'
 
 import { useState } from 'react'
+import { useNavigate } from 'react-router-dom'
 import { login } from '../services/users-api'
 
 export default function LoginForm({ setUser, setIsLogged }) {
@@ -9,6 +10,8 @@ export default function LoginForm({ setUser, setIsLogged }) {
         email: '',
         password: ''
     })
+
+    const nav = useNavigate()
 
     const handleChange = (e) => {
         setCredentials({
@@ -21,10 +24,9 @@ export default function LoginForm({ setUser, setIsLogged }) {
         e.preventDefault()
         try {
             const user = await login(credentials)
-            console.log(credentials)
-            console.log(user.user)
             setIsLogged(true)
             setUser(user.user)
+            nav("/")
         } catch (err) {
             console.error(err)
         }
@@ -32,13 +34,17 @@ export default function LoginForm({ setUser, setIsLogged }) {
 
     return (
         <div>
-            <div className="form-container">
-                <form onSubmit={handleSubmit}>
-                    <label>Email</label>
-                    <input type="email" name="email" value={credentials.email} onChange={handleChange} required />
-                    <label>Password</label>
-                    <input type="password" name="password" value={credentials.password} onChange={handleChange} required />
-                    <button type="submit">LOG IN</button>
+            <h1 className='loginHeader'>Log in!</h1>
+            <div>
+                <form className="form-container" onSubmit={handleSubmit}>
+                    <label className='loginLabel'>Email:</label>
+                    <input className='loginInput' type="email" name="email" value={credentials.email} onChange={handleChange} required />
+
+                    <label className='loginLabel'>Password:</label>
+                    <input className="loginInput" type="password" name="password" value={credentials.password} onChange={handleChange} required />
+                    <div className='loginButtonContainer'>
+                        <button className='loginButton' type="submit">LOG IN</button>
+                    </div>
                 </form>
             </div>
         </div>

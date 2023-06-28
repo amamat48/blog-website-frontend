@@ -5,14 +5,16 @@ import { Link } from 'react-router-dom'
 
 import { deleteBlog, makeComment } from '../services/blog-api'
 
-export default function BlogCard({ blog }) {
+export default function BlogCard({ blog, user }) {
+
+  console.log(blog)
 
   const [comments, setComments] = useState(null)
   const [newComment, setNewComment] = useState({
-    entry: ''
-  })
+    entry: '',
+    user: user._id
 
-  console.log(blog)
+  })
 
   const handleChange = (e) => {
     setNewComment({
@@ -43,22 +45,23 @@ export default function BlogCard({ blog }) {
       <section className='post'>
         <Link to={`/blogs/${blog.blog._id}`}><h1>{blog.blog.title}</h1></Link>
         <article>{blog.blog.entry}</article>
-        <button onClick={handleDelete}>DELETE</button>
-        <Link to={`/blogs/edit/${blog.blog._id}`}>EDIT</Link>
+        <button className='deleteButton' onClick={handleDelete}>DELETE</button>
+        <button className='editButton'><Link to={`/blogs/edit/${blog.blog._id}`}>EDIT</Link></button>
       </section>
       <section className='comment'>
         <h2>Comments:</h2>
         {blog.comments.map((comment) => {
           return (
             <div>
-              <p>{comment.entry}</p>
+              <p>{comment.comment.entry}</p>
+              {comment.user && <p>By: {comment.user}</p>}
             </div>
           )
         })}
         <p>Add a comment:</p>
         <form onSubmit={handleSubmit}>
-          <input type='text' name='entry' value={newComment.entry} onChange={handleChange} />
-          <button type='submit'>Add Comment</button>
+          <input className='commentInput' type='text' name='entry' value={newComment.entry} onChange={handleChange} />
+          <button className='commentButton' type='submit'>Add Comment</button>
         </form>
         <div>
           {!blog.user && <p>Made by Owner</p>}

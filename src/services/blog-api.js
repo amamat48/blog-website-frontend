@@ -1,7 +1,7 @@
 import axios from 'axios'
 
-// const baseURL = 'https://backend-express-amari.onrender.com/blogs'
-const baseURL = 'http://localhost:3001/blogs'
+const baseURL = 'https://backend-express-amari.onrender.com/blogs'
+// const baseURL = 'http://localhost:3001/blogs'
 
 axios.defaults.headers.common['Authorization'] = `Bearer ${localStorage.getItem('token')}`
 
